@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job 24h - Ứng dụng tìm việc làm hàng đầu tại Việt Nam</title>
+  <link rel="stylesheet" href="../Content/styles.css">
+  <link rel="icon" type="image/x-icon" href="../Content/image/logo.jpg">
+  <script>
+  window.onload = function () {
+    const query = window.location.search.substring(1); // Bỏ dấu '?'
+
+    // Nếu query bắt đầu bằng "vieclamangiang?", loại bỏ nó để ghép vào schema
+    let schemaQuery = query;
+    if (query.startsWith('vieclamangiang?')) {
+      schemaQuery = query.replace(/^vieclamangiang\?/, '');
+    }
+
+    // Tạo URL để mở app
+    const schemaUrl = 'vieclamangiang://vieclamangiang?' + schemaQuery;
+
+    // Mở app bằng cách đổi href
+    window.location.href = schemaUrl;
+  };
+</script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Job 24h - Viêc làm tốt nhất</h1>
+      <p>Ứng dụng tìm việc làm hàng đầu tại Việt Nam</p>
+    </div>
+  </header>
+
+  <!-- Giới thiệu -->
+  <section id="intro">
+    <div class="container">
+      <h2>Giới thiệu</h2>
+      <p>
+        Job 24h là ứng dụng giúp bạn tìm kiếm việc làm phù hợp tại tỉnh An Giang một cách nhanh chóng và hiệu quả.
+        Với giao diện thân thiện và dễ sử dụng, bạn có thể dễ dàng tìm thấy công việc mơ ước của mình.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tính năng -->
+  <section id="features">
+    <div class="container">
+      <h2>Tính năng nổi bật</h2>
+      <ul>
+        <li>Tìm kiếm việc làm theo ngành nghề, địa điểm, mức lương.</li>
+        <li>Ứng tuyển trực tiếp qua ứng dụng.</li>
+        <li>Nhận thông báo việc làm mới phù hợp với bạn.</li>
+        <li>Đánh giá và xem đánh giá từ nhà tuyển dụng.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Liên hệ -->
+  <section id="contact">
+    <div class="container">
+      <h2>Liên hệ</h2>
+      <p>Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi:</p>
+      <ul>
+        <li>Nhà tuyển dụng</li>
+        <li>Email: <a href="mailto:phongttttag@gmail.com">phongttttag@gmail.com</a></li>
+        <li>Điện thoại: 02963.831.123</li>
+        <li>Địa chỉ: Số 77, đường Tôn Đức Thắng, phường Mỹ Bình, TP Long Xuyên, tỉnh An Giang</li>
+      </ul>
+      <ul>
+        <li>Người tìm việc</li>
+        <li>Email: <a href="mailto:gtvlag@gmail.com">gtvlag@gmail.com</a></li>
+        <li>Điện thoại: 02963.853.566</li>
+        <li>Địa chỉ: Số 77, đường Tôn Đức Thắng, phường Mỹ Bình, TP Long Xuyên, tỉnh An Giang</li>
+      </ul>
+    </div>
+  </section>
+  <section id="contact">
+    <div class="container">
+      <h2>Quy định & Bảo mật</h2>
+      <ul>
+        <li><a href="chinh-sach-quy-dinh">Chính sách quy định chung</a></li>
+        <li><a href="chinh-sach-bao-mat">Chính sách bảo mật</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Job 24h. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
