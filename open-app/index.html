@@ -18,10 +18,35 @@
 
     // Tạo URL để mở app
     const schemaUrl = 'vieclamangiang://vieclamangiang?' + schemaQuery;
+    const fallbackUrl = getStoreUrl();
+    setTimeout(function () {
+        window.location.href = fallbackUrl;
+    }, 1500);
 
     // Mở app bằng cách đổi href
     window.location.href = schemaUrl;
   };
+  
+  function isIOS() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+  }
+  function getStoreUrl() {
+    if (isIOS()) {
+      // Link cài app trên App Store (đổi lại đúng link của bạn)
+      return 'https://apps.apple.com/app/6742472218';
+    } else if (isAndroid()) {
+      // Link cài app trên Google Play (đổi lại đúng link của bạn)
+      return 'https://play.google.com/store/apps/details?id=com.vieclamangiang';
+    } else {
+      // Nếu không phải iOS/Android thì mở về trang chủ hoặc thông báo
+      return 'https://play.google.com/store/apps/details?id=com.vieclamangiang';
+    }
+  }
+  
 </script>
 </head>
 <body>
