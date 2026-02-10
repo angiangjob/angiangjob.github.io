@@ -1,26 +1,42 @@
 @echo off
-setlocal enabledelayedexpansion
+setlocal
 
-:: Cấu hình đường dẫn thư mục chứa ảnh (nếu chạy cùng thư mục thì để .)
-set TARGET_DIR=.
-
-pushd %TARGET_DIR%
-
-echo Dang xu ly doi ten file...
-
-:: 1. Đổi logo.png cũ thành tên backup để tránh trùng lặp
+:: 1. Tráo đổi tên file dùng file tạm
 if exist "logo.png" (
-    ren "logo.png" "logo_old_%date:~10,4%%date:~4,2%%date:~7,2%.png"
-    echo [OK] Da doi logo.png thanh file backup.
+    ren "logo.png" "logo_temp.png"
+) else (
+    echo [LOI] Khong tim thay logo.png
+    goto :error
 )
 
-:: 2. Đổi logo12.png thành logo.png (để App load file mới này)
 if exist "logo12.png" (
     ren "logo12.png" "logo.png"
-    echo [OK] Da doi logo12.png thanh logo.png
 ) else (
-    echo [Loi] Khong tim thay file logo12.png
+    ren "logo_temp.png" "logo.png"
+    echo [LOI] Khong tim thay logo12.png
+    goto :error
 )
 
-popd
+if exist "logo_temp.png" (
+    ren "logo_temp.png" "logo12.png"
+)
+
+echo [OK] Da trao doi ten 2 file thành công.
+
+:: 2. Thực hiện lệnh Git
+echo Dang thuc hien Git Commit...
+
+git add .
+git commit -m "change image"
+git push
+
+:: Nếu bạn muốn đẩy lên server luôn thì bỏ dấu :: ở dòng dưới
+:: git push
+
+echo [OK] Da commit lenh: change image
 pause
+exit
+
+:error
+pause
+exit
